@@ -37,4 +37,4 @@ jobs:
             run: |
                 echo "${{ secrets.SF_JWT_KEY }}" > server.key
                 sf org login jwt --username ${{ secrets.SF_USERNAME_QA }} --jwt-key-file server.key --client-id ${{ secrets.SF_CLIENT_ID }} --instanceurl https://login.salesforce.com \
-                sf project deploy start --source-dir changed-sources/force-app --test-level RunLocalTests
+                sf project deploy start --source-dir changed-sources/force-app --test-level RunLocalTests --target-org ${{ secrets.SF_USERNAME_QA }}
